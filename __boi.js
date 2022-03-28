@@ -17277,33 +17277,34 @@ function CtoF(celcius){
       map.removeSource(`mwSWE${type}`)
     }
 
-    function addVolcano(){
+       function addVolcano(){
       loadingSpinner(true);
       var usgsGeojson;
       var usgs;
-      fetch('https:\/\/test.8222.workers.dev/?https:\/\/www.usgs.gov/volcano')
-          .then(res => res.text())
-          .then(str => {
-              var parser = new DOMParser()
-              var infoObj = parser.parseFromString(str,'text/html')
-              let scripts = [...infoObj.querySelectorAll('script')]      // get all the divs in an array
-                .map(div => div.innerHTML)               // get their contents
-                .filter(txt => txt.includes('jsVolcanoesData')) // keep only those containing the query
-                .forEach(txt => {usgs = txt})
-              //console.log(usgs)
-              usgs = usgs.split('};',1)
-              console.log(usgs)
-              usgs = `${usgs[0]}}`
-              usgs = usgs.slice(24)
-              console.log(usgs)
-              usgsGeojson = JSON.parse(usgs)
-          })
-          .then(()=>{
+      // fetch('https://test.8222.workers.dev/?https://www.usgs.gov/volcano')
+      //     .then(res => res.text())
+      //     .then(str => {
+      //         var parser = new DOMParser()
+      //         var infoObj = parser.parseFromString(str,'text/html')
+      //         let scripts = [...infoObj.querySelectorAll('script')]      // get all the divs in an array
+      //           .map(div => div.innerHTML)               // get their contents
+      //           .filter(txt => txt.includes('jsVolcanoesData')) // keep only those containing the query
+      //           .forEach(txt => {usgs = txt})
+      //         //console.log(usgs)
+      //         usgs = usgs.split('};',1)
+      //         console.log(usgs)
+      //         usgs = `${usgs[0]}}`
+      //         usgs = usgs.slice(24)
+      //         console.log(usgs)
+      //         usgsGeojson = JSON.parse(usgs)
+      //     })
+      //     .then(()=>{
 
-            console.log(usgsGeojson)
+      //       console.log(usgsGeojson)
+
         map.addSource('Volcano', {
           type: 'geojson',
-          data: usgsGeojson
+          data: 'https://volcanoes.usgs.gov/vsc/api/volcanoApi/geojson'
         });
         map.addLayer({
           'id': 'Volcano',
@@ -17323,7 +17324,7 @@ function CtoF(celcius){
             ],
             'circle-color': [
               'match',
-              ['get', 'color'],
+              ['get', 'colorCode'],
               'GREEN', 'rgba(0, 255, 0, 1)',
               'YELLOW', 'rgba(255, 255, 0, 1)',
               'ORANGE', 'rgba(255, 175, 0, 1)',
@@ -17342,7 +17343,7 @@ function CtoF(celcius){
             'text-allow-overlap': true,
             //'text-field': '{'+type+'}',
             'text-offset': [0, 1.5],
-            'text-field': '{name}',
+            'text-field': '{volcanoName}',
             'text-font': [
               "Open Sans Condensed Bold",
               "Open Sans Condensed Bold",
@@ -17350,7 +17351,7 @@ function CtoF(celcius){
             ],
             'text-size': [
               'match',
-              ['get', 'color'],
+              ['get', 'colorCode'],
               'GREEN', 10,
               'YELLOW', 18,
               'ORANGE', 22,
@@ -17361,7 +17362,7 @@ function CtoF(celcius){
           'paint': {
             'text-color': [
               'match',
-              ['get', 'color'],
+              ['get', 'colorCode'],
               'GREEN', 'rgba(0, 0, 0, 0)',
               'YELLOW', 'rgba(255, 255, 0, 1)',
               'ORANGE', 'rgba(255, 175, 0, 1)',
@@ -17370,7 +17371,7 @@ function CtoF(celcius){
             ],
             'text-halo-color': [
               'match',
-              ['get', 'color'],
+              ['get', 'colorCode'],
               'GREEN', 'rgba(0, 0, 0, 0)',
               'YELLOW', 'rgba(0, 0, 0, 1)',
               'ORANGE', 'rgba(0, 0, 0, 1)',
@@ -17383,17 +17384,17 @@ function CtoF(celcius){
           //'filter': ['has', ''+type+'']
         }, 'settlement-label');
 
-          })
-        // map.addSource('Volcano', {
-        //   type: 'geojson',
-        //   data: 'https:\/\/oregonem.com/arcgis/rest/services/Public/Volcano_Status/MapServer/0/query?f=geojson&where=1%3D1&returnGeometry=true&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Volcano_Name%20asc&resultOffset=0'
-        // });
+        //   })
+        // // map.addSource('Volcano', {
+        // //   type: 'geojson',
+        // //   data: 'https://oregonem.com/arcgis/rest/services/Public/Volcano_Status/MapServer/0/query?f=geojson&where=1%3D1&returnGeometry=true&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Volcano_Name%20asc&resultOffset=0'
+        // // });
         var volcgeojson = {
           type: "FeatureCollection",
           features: [],
         };
 
-        fetch('https:\/\/avo.alaska.edu/includes/js/map/json_russian.js')
+        fetch('https://avo.alaska.edu/includes/js/map/json_russian.js')
           .then(res => res.json())
           .then(data => data.russian.forEach(function(d) {
             volcgeojson.features.push({
@@ -17410,7 +17411,7 @@ function CtoF(celcius){
             })
           )
 
-        fetch('https:\/\/avo.alaska.edu/includes/js/map/json_kuriles.js')
+        fetch('https://avo.alaska.edu/includes/js/map/json_kuriles.js')
           .then(res => res.json())
           .then(data => data.kuriles.forEach(function(d) {
             volcgeojson.features.push({
@@ -17517,7 +17518,7 @@ function CtoF(celcius){
         map.on('click', 'Volcano', function(e) {
           new mapboxgl.Popup({offset:[0,2]})
           .setLngLat(e.lngLat)
-          .setHTML('<div class="popup-header">'+e.features[0].properties.name +' - '+ e.features[0].properties.alert +'</div><br><a href="' + e.features[0].properties.Link + '" target="Popup" onclick="window.open(\'' + e.features[0].properties.link + '\',\'popup\',\'width=900,height=800\'); return false;">Volcano Page</a></span>')
+          .setHTML('<div class="popup-header">'+e.features[0].properties.volcanoName +' - '+ e.features[0].properties.alertLevel +'</div><br><img width="100%" src="'+e.features[0].properties.volcanoImage+'"><br><a href="' + e.features[0].properties.volcanoUrl + '" target="Popup" onclick="window.open(\'' + e.features[0].properties.volcanoUrl + '\',\'popup\',\'width=900,height=800\'); return false;">Volcano Page</a></span>')
           .addTo(map);
         });
 
@@ -17531,16 +17532,16 @@ function CtoF(celcius){
 
         var ar = ["all"];
         map.on('dblclick','Volcano',function(e){
-          var stid = e.features[0].properties.stid;
-          var stn = ['!=', 'name', e.features[0].properties.name];
+          //var stid = e.features[0].properties.stid;
+          var stn = ['!=', 'volcanoName', e.features[0].properties.volcanoName];
 
           ar.push(stn);
           console.table(ar);
           map.setFilter('Volcano', ar
           );
 
-          map.setFilter('Volcano1', ar
-          );
+          // map.setFilter('Volcano1', ar
+          // );
         })
     }
 
