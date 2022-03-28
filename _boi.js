@@ -6048,8 +6048,13 @@ function render(gl, matrix, tiles) {
                     .then(str => {
                       var x2js = new X2JS(),
                         xml = x2js.xml_str2json(str)
-                        if (xml.kml?.Document?.Placemark){
-                          return xml.kml.Document.Placemark
+                        try{
+                          if (xml.kml?.Document?.Placemark){
+                            return xml.kml.Document.Placemark
+                          }
+                        }catch(e){
+                          console.log(e)
+                          return
                         }
                     })
                     .then(result => [result])
