@@ -8472,7 +8472,7 @@ function CtoF(celcius){
             break;
           }
         }
-        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.3.0&request=GetCapabilities')
+        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.1.1&request=GetCapabilities')
           .then(res => res.text())
           .then(str => {
               var x2js = new X2JS(),times,
@@ -8489,9 +8489,9 @@ function CtoF(celcius){
                         'type': 'raster',
                         'attribution': 'KCBX. Valid: <b>' + moment(timestr,'YYYY-MM-DDThh:mm:ss.SSSZ').format('MMMM Do YYYY, h:mm a'),
                         'tiles': [
-                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=${lay}&TIME=${timestr}&WIDTH=256&HEIGHT=256&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
+                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=${lay}&TIME=${timestr}&WIDTH=512&HEIGHT=512&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
                         ],
-                        'tileSize': 256,
+                        'tileSize': 512,
                       },
                       'paint': {
                         "raster-opacity": 1,
@@ -8762,7 +8762,7 @@ function CtoF(celcius){
             break;
           }
         }
-        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/conus_cref_raw/ows?service=wms&version=1.3.0&request=GetCapabilities')
+        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/conus_cref_raw/ows?service=wms&version=1.1.1&request=GetCapabilities')
           .then(res => res.text())
           .then(str => {
               var x2js = new X2JS(),times,
@@ -8779,9 +8779,9 @@ function CtoF(celcius){
                         'type': 'raster',
                         'attribution': 'KCBX. Valid: <b>' + moment(timestr,'YYYY-MM-DDThh:mm:ss.SSSZ').format('MMMM Do YYYY, h:mm a'),
                         'tiles': [
-                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/conus_cref_raw/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=conus_cref_raw&TIME=${timestr}&WIDTH=256&HEIGHT=256&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
+                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/conus_cref_raw/ows?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=conus_cref_raw&TIME=${timestr}&WIDTH=512&HEIGHT=512&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
                         ],
-                        'tileSize': 256,
+                        'tileSize': 512,
                       },
                       'paint': {
                         "raster-opacity": 1,
@@ -8908,7 +8908,7 @@ function CtoF(celcius){
         var currentImage = 0;
         hrtimestamps=[];
 
-        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/ows?service=wms&version=1.3.0&request=GetCapabilities')
+        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/ows?service=wms&version=1.1.1&request=GetCapabilities')
           .then(res => res.text())
           .then(str => {
               var x2js = new X2JS(),times,
@@ -8934,9 +8934,9 @@ function CtoF(celcius){
                       'source': {
                         'type': 'raster',
                         'tiles': [
-                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=${infoObj.WMS_Capabilities.Capability.Layer.Layer[layNum].Name}&TIME=${timestr[j]}&WIDTH=256&HEIGHT=256&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
+                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/conus/ows?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=${infoObj.WMS_Capabilities.Capability.Layer.Layer[layNum].Name}&TIME=${timestr[j]}&WIDTH=512&HEIGHT=512&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
                         ],
-                        'tileSize': 256,
+                        'tileSize': 512,
                       },
                       'paint': {
                         "raster-opacity": 0,
@@ -8975,7 +8975,7 @@ function CtoF(celcius){
         var currentImage = 0;
         hrtimestamps=[];
 
-        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.3.0&request=GetCapabilities')
+        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.1.1&request=GetCapabilities')
           .then(res => res.text())
           .then(str => {
               var x2js = new X2JS(),times,
@@ -8996,9 +8996,9 @@ function CtoF(celcius){
                       'source': {
                         'type': 'raster',
                         'tiles': [
-                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=kcbx_bref_raw&TIME=${timestr[j]}&WIDTH=256&HEIGHT=256&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
+                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=kcbx_bref_raw&TIME=${timestr[j]}&WIDTH=512&HEIGHT=512&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
                         ],
-                        'tileSize': 256,
+                        'tileSize': 512,
                       },
                       'paint': {
                         "raster-opacity": 0,
@@ -9035,7 +9035,7 @@ function CtoF(celcius){
         var currentImage = 0;
         hrtimestamps=[];
 
-        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.3.0&request=GetCapabilities')
+        fetch('https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?service=wms&version=1.1.1&request=GetCapabilities')
           .then(res => res.text())
           .then(str => {
               var x2js = new X2JS(),times,
@@ -9056,9 +9056,9 @@ function CtoF(celcius){
                       'source': {
                         'type': 'raster',
                         'tiles': [
-                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=kcbx_bvel_raw&TIME=${timestr[j]}&WIDTH=256&HEIGHT=256&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
+                          `https:\/\/opengeo.ncep.noaa.gov/geoserver/kcbx/ows?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&TILED=true&LAYERS=kcbx_bvel_raw&TIME=${timestr[j]}&WIDTH=512&HEIGHT=512&SRS=EPSG%3A3857&BBOX={bbox-epsg-3857}`
                         ],
-                        'tileSize': 256,
+                        'tileSize': 512,
                       },
                       'paint': {
                         "raster-opacity": 0,
