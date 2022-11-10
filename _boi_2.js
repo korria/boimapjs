@@ -11965,7 +11965,7 @@ function CtoF(celcius){
         var layers = map.getStyle().layers;
         loadingSpinner(true);
 
-        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/west/grb/ABI/FullDisk/Channel07/current/catalog.html')
+        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/18/grb/ABI/FullDisk/Channel07/current/catalog.html')
         .then(res => res.text())
           .then(data => {
             let allLines = data.split("\n");
@@ -12002,7 +12002,7 @@ function CtoF(celcius){
                   'type': 'raster',
                   'scheme':'tms',
                   'tiles': [
-                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/west/grb/ABI/FullDisk/Channel07/current/OR_ABI-L1b-RadF-M6C07_G17_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/occam&COLORSCALERANGE=0.035,3.5&NUMCOLORBANDS=253&LOGSCALE=false&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
+                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/18/grb/ABI/FullDisk/Channel07/current/OR_ABI-L1b-RadF-M6C07_G18_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/occam&COLORSCALERANGE=0.035,3.5&NUMCOLORBANDS=253&LOGSCALE=false&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
                   ],
                   'tileSize': 512,
                   //'maxZoom': 11.99,
@@ -12028,7 +12028,7 @@ function CtoF(celcius){
         var layers = map.getStyle().layers;
         loadingSpinner(true);
 
-        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/west/grb/ABI/FullDisk/Channel09/current/catalog.html')
+        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/18/grb/ABI/FullDisk/Channel09/current/catalog.html')
         .then(res => res.text())
           .then(data => {
             let allLines = data.split("\n");
@@ -12064,7 +12064,7 @@ function CtoF(celcius){
                   'type': 'raster',
                   'scheme':'tms',
                   'tiles': [
-                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/west/grb/ABI/FullDisk/Channel09/current/OR_ABI-L1b-RadF-M6C09_G17_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/occam&COLORSCALERANGE=0.1,15&NUMCOLORBANDS=253&LOGSCALE=false&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
+                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/18/grb/ABI/FullDisk/Channel09/current/OR_ABI-L1b-RadF-M6C09_G18_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/occam&COLORSCALERANGE=0.1,15&NUMCOLORBANDS=253&LOGSCALE=false&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
                   ],
                   'tileSize': 512,
                   //'maxZoom': 11.99,
@@ -12091,7 +12091,7 @@ function CtoF(celcius){
         var layers = map.getStyle().layers;
         loadingSpinner(true);
 
-        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/west/grb/ABI/FullDisk/Channel02/current/catalog.html')
+        fetch('https:\/\/test.8222.workers.dev/?https:\/\/thredds.ucar.edu/thredds/catalog/satellite/goes/18/grb/ABI/FullDisk/Channel02/current/catalog.html')
         .then(res => res.text())
           .then(data => {
             let allLines = data.split("\n");
@@ -12127,7 +12127,7 @@ function CtoF(celcius){
                   'type': 'raster',
                   'scheme':'tms',
                   'tiles': [
-                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/west/grb/ABI/FullDisk/Channel02/current/OR_ABI-L1b-RadF-M6C02_G17_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/greyscale&COLORSCALERANGE=6,600&NUMCOLORBANDS=253&LOGSCALE=true&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
+                  `https:\/\/thredds.ucar.edu/thredds/wms/satellite/goes/18/grb/ABI/FullDisk/Channel02/current/OR_ABI-L1b-RadF-M6C02_G18_${g17f[j]}?LAYERS=Rad&ELEVATION=0&TIME=${g17t[j]}&TRANSPARENT=false&STYLES=boxfill/greyscale&COLORSCALERANGE=6,600&NUMCOLORBANDS=253&LOGSCALE=true&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=512&HEIGHT=512`
                   ],
                   'tileSize': 512,
                   //'maxZoom': 11.99,
